@@ -1,0 +1,22 @@
+﻿
+@using BV.Models
+@{
+    ViewBag.Title = "Resultado de la Venta";
+}
+
+<h2>Resultado de la Venta</h2>
+
+
+<p>Monedas de vueltas:</p>
+ 
+<ul>
+    @foreach (var moneda in ViewBag.Vuelto)
+    {
+        <li>@moneda.Valor</li>
+    }
+</ul>
+
+
+
+}
+

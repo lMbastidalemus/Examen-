@@ -1,0 +1,41 @@
+﻿@using BV.Models
+@model IEnumerable<Producto>
+
+@{
+    ViewBag.Title = "Máquina de Alimentos";
+}
+
+<h2 style="text-align:center; font-weight:600">Seleccione un producto</h2>
+
+@using (Html.BeginForm("ProcesarVenta", "MaquinaAlimentos", FormMethod.Post))
+{
+
+    <div class="container" style="display:grid; grid-template-rows:repeat(1, fr); justify-items:center">
+
+
+        <label for="nombre">Nombre: </label>
+        <input type="text" name="nombre" required />
+
+        <br />
+        <br />
+
+        <label for="productoElegido">Seleccione un producto: </label>
+        <select name="productoElegido">
+            @foreach (var producto in ViewBag.Productos)
+            {
+                <option value="@producto.Nombre">@producto.Nombre - $@producto.Precio</option>
+            }
+        </select>
+
+        <br />
+        <br />
+
+        <label for="montoIngresado">Ingrese el monto: </label>
+        <input type="number" name="montoIngresado" required />
+
+        <br />
+        <br />
+
+        <input type="submit" value="Procesar Venta" />
+    </div>
+}
